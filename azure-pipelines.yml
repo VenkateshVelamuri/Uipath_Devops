@@ -12,4 +12,10 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-
+- task: UiPathPack@2
+  inputs:
+    versionType: 'AutoVersion'
+    projectJsonPath: 'git@github.com:VenkateshVelamuri/Uipath_Devops.git'
+    outputType: 'Process'
+    orchestratorConnection: 'Connection_to_Uipath_Orchestrator'
+    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
