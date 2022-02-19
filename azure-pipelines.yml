@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: Windows-latest
 
 steps:
 - script: echo Hello, world!
@@ -25,9 +25,6 @@ stages:
       - job: BuildArtifact
         pool:
           vmImage: "windows-latest"
-        container:
-          image: uipathrobot.azurecr.io/uipathrobot:latest
-          endpoint: robot-container-registry
 
         steps:
           - script: C:\UiPath\UiRobot.exe pack $(Build.SourcesDirectory)\project.json -o $(Build.ArtifactStagingDirectory)\ -v 1.0.$(Build.BuildNumber)
